@@ -1,0 +1,57 @@
+---
+title: "Data Pre-Processing"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(tidyverse)         # for graphing and data cleaning
+library(tidymodels)        # for modeling
+library(themis)            # for step functions for unbalanced data
+library(doParallel)        # for parallel processing
+library(stacks)            # for stacking models
+library(naniar)            # for examining missing values (NAs)
+library(lubridate)         # for date manipulation
+library(moderndive)        # for King County housing data
+library(vip)               # for variable importance plots
+library(patchwork)         # for combining plots nicely
+library(xgboost)
+theme_set(theme_minimal()) # Lisa's favorite theme
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+ADS_Project_11_15_2021_v2
+```
+
+
+```{r}
+BTC_Split <- initial_split(ADS_Project_11_15_2021_v2, prop = 0.75)
+
+BTC_training <- training(BTC_Split)
+BTC_testing <- testing(BTC_Split)
+```
+
+```{r}
+BTC_training
+```
+
+```{r}
+BTC_CV<- train(
+  price ~.,
+  data = BTC_training,
+  method = "lm",
+  trControl = trainControl(method = "cv", number = 5),
+  na.action = na.omit
+)
+```
+
+
