@@ -1,0 +1,34 @@
+---
+title: "Data Pre-Processing"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(tidyverse)         # for graphing and data cleaning
+library(tidymodels)        # for modeling
+library(themis)            # for step functions for unbalanced data
+library(doParallel)        # for parallel processing
+library(stacks)            # for stacking models
+library(naniar)            # for examining missing values (NAs)
+library(lubridate)         # for date manipulation
+library(moderndive)        # for King County housing data
+library(vip)               # for variable importance plots
+library(patchwork)         # for combining plots nicely
+library(xgboost)
+theme_set(theme_minimal()) # Lisa's favorite theme
+```
+
+
+```{r}
+library(readxl)
+ADS_Project_11_15_2021_v2 <- read_excel("ADS_Project - 11.15.2021.v2.xlsx")
+View(ADS_Project_11_15_2021_v2)
+```
+
+
+
