@@ -26,9 +26,12 @@ theme_set(theme_minimal()) # Lisa's favorite theme
 
 ```{r}
 library(readxl)
-ADS_Project_11_15_2021_v2 <- read_excel("ADS_Project - 11.15.2021.v2.xlsx")
-View(ADS_Project_11_15_2021_v2)
+ADS_Project_11_22_2021_v3 <- read_excel("ADS_Project - 11.22.2021.v3.xlsx")
 ```
 
 
+```{r}
+Master <- ADS_Project_11_22_2021_v3 %>%
+select(-c(`Last Calculated EOD metrics (time, in seconds)`, `Block Count`, `Block Size (mean, in bytes)`, `Block Weight, (mean`, `Capitalization of current supply, MVRV`, `Capitalization of free float, MVRV`, `Difficulty, Last Block`, `Difficulty, Mean Block`, `Mean Transaction Fee per Byte of all blocks, native units`, `Mean Transaction Fee per Byte, native units`, `Median Transaction Fee, native units`, `Median Fee per Transacation, USD`, `Addresses balance greater than 0.001 native units`, `Addresses balance greater than 0.01 native units`, `Addresses balance greater than 0.1 native units`,`Addresses balance greater than 100 native units`, `Addresses balance greater than 100K native units`, `Addresses balance greater than 10 native units`, `Addresses balance greater than 10K native units`, `Addresses balance greater than 1 native units`, `Addresses balance greater than 1K native units`, `Addresses balance greater than 1M native units`, `Addresses balance greater than 1in100K`, `Addresses balance greater than 1in100M`, `Addresses balance greater than 1in10B`, `Addresses balance greater than 1in10K`, `Addresses balance greater than 1in10K`, `Addresses balance greater than 1in10M`, `Addresses balance greater than 1in1B`, `Addresses balance greater than 1in1K`, `Addressesbalance greater than 1in1M`  ))
+```
 
