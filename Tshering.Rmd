@@ -64,6 +64,8 @@ Master_CV <- train(
   na.action = na.omit
 )
 ```
->>>>>>> 78da4d09a5e26790fb79db276486083cf87e93e8
+
+hi my name is t
+
 
 
