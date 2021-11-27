@@ -57,6 +57,9 @@ Master_Training %>% select(where(is.numeric)) %>%
                 facet_wrap(vars(variable),
                            scales = "free")
 ```
+```{r}
+is.na(Master_Training) %>% colSums()
+```
 
 
 
@@ -71,10 +74,10 @@ Master_Testing <- testing(Master_Spit_Omit)
 
 ```{r}
 backstep_model <- train(
-    Price ~SOPR + ,
-    data = Master_Training,
+    Price ~.,
+    data = Master_Split,
     method = "leapBackward",
-    tuneGrid = data.frame(nvmax = 1:10),
+    tuneGrid = data.frame(nvmax = 1:82),
     trControl = trainControl(method = "cv", number = 5),
     metric = "MAE",
     na.action = na.omit
